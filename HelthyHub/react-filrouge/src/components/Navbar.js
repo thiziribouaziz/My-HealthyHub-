@@ -46,9 +46,6 @@ const Navbar = ({ isLoggedIn, onLogout }) => (
           </li>
 
           <li className="nav-item">
-            <Link className="nav-link" to="/activities">
-              Activités
-            </Link>
           </li>
 
           {/* ✅ Si connecté → bouton déconnexion */}
