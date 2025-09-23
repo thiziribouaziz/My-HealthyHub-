@@ -8,6 +8,10 @@ const MesRecettes = () => {
   const [message, setMessage] = useState('');
   const [recettes, setRecettes] = useState([]);
 
+  // --- états pour l'édition de titre ---
+  const [editingId, setEditingId] = useState(null);
+  const [editingTitle, setEditingTitle] = useState('');
+
   const email = localStorage.getItem('email'); // Email utilisateur connecté
 
   // Transformer automatiquement les liens YouTube en /embed/
@@ -60,12 +64,50 @@ const MesRecettes = () => {
       const res = await axios.delete(`http://localhost:5000/api/recettes/${id}`, {
         data: { email } // axios utilise `data` pour envoyer le body avec DELETE
       });
-      console.log(res.data);
-      setRecettes(recettes.filter((recette) => recette.id !== id));
+      setRecettes((prev) => prev.filter((recette) => recette.id !== id));
       setMessage(res.data.message || 'Recette supprimée ✅');
     } catch (err) {
       console.error('Erreur lors de la suppression :', err);
       setMessage(err.response?.data?.message || 'Erreur lors de la suppression ❌');
+    }
+  };
+
+  // --- ÉDITION DE TITRE ---
+
+  // Ouvrir le mode édition pour une recette
+  const handleStartEdit = (recette) => {
+    setEditingId(recette.id);
+    setEditingTitle(recette.title);
+  };
+
+  // Annuler l’édition
+  const handleCancelEdit = () => {
+    setEditingId(null);
+    setEditingTitle('');
+  };
+
+  // Enregistrer le nouveau titre (mise à jour uniquement du champ title)
+  const handleSaveTitle = async (id) => {
+    if (!editingTitle.trim()) {
+      setMessage("Le titre ne peut pas être vide.");
+      return;
+    }
+    try {
+      // ⚠️ suppose une route PUT/PATCH qui n'update que 'title'
+      const res = await axios.put(`http://localhost:5000/api/recettes/${id}`, {
+        title: editingTitle,
+        email
+      });
+      // Mise à jour locale optimiste
+      setRecettes((prev) =>
+        prev.map((r) => (r.id === id ? { ...r, title: editingTitle } : r))
+      );
+      setMessage(res.data?.message || 'Titre modifié ✅');
+      setEditingId(null);
+      setEditingTitle('');
+    } catch (err) {
+      console.error('Erreur lors de la modification du titre :', err);
+      setMessage(err.response?.data?.message || 'Erreur lors de la modification ❌');
     }
   };
 
@@ -120,13 +162,52 @@ const MesRecettes = () => {
                     title={recette.title}
                     allowFullScreen
                   ></iframe>
-                  <h3 className="mt-3">{recette.title}</h3>
-                  <button
-                    className="btn btn-danger mt-2"
-                    onClick={() => handleDelete(recette.id)}
-                  >
-                    Supprimer
-                  </button>
+
+                  {/* Affichage titre OU champ d’édition */}
+                  {editingId === recette.id ? (
+                    <div className="mt-3">
+                      <label className="form-label">Nouveau titre</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        value={editingTitle}
+                        onChange={(e) => setEditingTitle(e.target.value)}
+                        autoFocus
+                      />
+                      <div className="d-flex gap-2 mt-2">
+                        <button
+                          className="btn btn-primary"
+                          onClick={() => handleSaveTitle(recette.id)}
+                        >
+                          Enregistrer
+                        </button>
+                        <button
+                          className="btn btn-outline-secondary"
+                          onClick={handleCancelEdit}
+                        >
+                          Annuler
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    <>
+                      <h3 className="mt-3">{recette.title}</h3>
+                      <div className="d-flex gap-2 mt-2">
+                        <button
+                          className="btn btn-danger"
+                          onClick={() => handleDelete(recette.id)}
+                        >
+                          Supprimer
+                        </button>
+                        <button
+                          className="btn btn-warning"
+                          onClick={() => handleStartEdit(recette)}
+                        >
+                          Modifier le titre
+                        </button>
+                      </div>
+                    </>
+                  )}
                 </div>
               ))
             ) : (

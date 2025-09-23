@@ -372,3 +372,22 @@ footer p {
   max-width: 600px; /* largeur max d’une vidéo */
   text-align: center;
 }
+.espaceAcceuil{
+display: flex;
+ }
+.photoacceuillarge{
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+}
+.divAcc{
+  display: block;
+}
+.imageacc{
+  background-image: url(./img/photogrid1.jpg);
+}
+.photogrid1{
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+}

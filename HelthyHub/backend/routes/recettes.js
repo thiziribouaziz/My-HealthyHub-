@@ -96,6 +96,49 @@ router.delete('/:id', (req, res) => { // -> /api/recettes/12
     }
   );
 });
+// ✅ Mettre à jour UNIQUEMENT le titre d'une recette (sécurisé par l'email)
+router.put('/:id', (req, res) => { // -> /api/recettes/12
+  const { id } = req.params;
+  const { title, email } = req.body;
+
+  if (!email) {
+    return res.status(400).json({ message: "Email requis ❌" });
+  }
+  if (!title || !title.trim()) {
+    return res.status(400).json({ message: "Titre requis ❌" });
+  }
+
+  const newTitle = title.trim();
+
+  // Optionnel : petite validation
+  if (newTitle.length > 200) {
+    return res.status(400).json({ message: "Titre trop long (200 max) ❌" });
+  }
+
+  // Mise à jour uniquement si la recette appartient à l'utilisateur
+  // (on joint users pour vérifier la propriété via l'email, insensible à la casse)
+  const sql = `
+    UPDATE recettes r
+    JOIN users u ON r.user_id = u.id
+    SET r.title = ?
+    WHERE r.id = ? AND LOWER(u.email) = LOWER(?)
+  `;
+
+  db.query(sql, [newTitle, id, email], (err, result) => {
+    if (err) {
+      console.error("Erreur update titre:", err);
+      return res.status(500).json({ message: "Erreur DB ❌" });
+    }
+
+    if (result.affectedRows === 0) {
+      // Soit l'id n'existe pas, soit la recette n'appartient pas à cet utilisateur
+      return res.status(403).json({ message: "Non autorisé ou recette introuvable ❌" });
+    }
+
+    return res.json({ message: "Titre modifié ✅" });
+  });
+});
+
 
 
 module.exports = router;
