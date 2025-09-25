@@ -6,7 +6,6 @@ const Home = () => (
   <>
     <div className="container">
       <div className="text-content">
-        <h2>HEALTHY HUB</h2>
       <div className="espaceAcceuil">
         <div className='divAcc'>
         <h1>
@@ -24,11 +23,17 @@ const Home = () => (
         </div>
         <div className='imageacc'>
         { <img src={photoacceuillarge} alt="Healthy food" className="photoacceuillarge" /> }
-        { <img src={photogrid1} alt="Healthy food" className="photogrid1" /> }
         </div>
       </div>
       </div>
     </div>
+    { <img src={photogrid1} alt="Healthy food" className="photogrid1" /> }
+      { <img src={photoacceuillarge} alt="Healthy food" className="photoacceuillarge" /> }
+        { <img src={photoacceuillarge} alt="Healthy food" className="photoacceuillarge" /> }
+          { <img src={photoacceuillarge} alt="Healthy food" className="photoacceuillarge" /> }
+            { <img src={photoacceuillarge} alt="Healthy food" className="photoacceuillarge" /> }
+              { <img src={photoacceuillarge} alt="Healthy food" className="photoacceuillarge" /> }
+                { <img src={photoacceuillarge} alt="Healthy food" className="photoacceuillarge" /> }
   </>
 );
 

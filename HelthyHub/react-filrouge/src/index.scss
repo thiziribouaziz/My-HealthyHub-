@@ -391,3 +391,92 @@ display: flex;
   height: 150px;
   border-radius: 100%;
 }
+/* Conteneur */
+.nb { background:#f8f9fa; border-bottom:1px solid rgba(0,0,0,.08); }
+.nb__bar { max-width:1100px; margin:0 auto; padding:.6rem 1rem;
+  display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+
+/* Marque */
+.nb__brand { display:flex; align-items:center; gap:.5rem; text-decoration:none; color:inherit; }
+.nb__brand img { height:28px; }
+
+/* Burger */
+.nb__toggle { display:inline-flex; width:36px; height:36px; align-items:center; justify-content:center; border:0; background:transparent; }
+.nb__toggle span, .nb__toggle span::before, .nb__toggle span::after {
+  content:""; display:block; width:22px; height:2px; background:#111;
+  position:relative; transition:transform .2s ease, opacity .2s ease, top .2s ease;
+}
+.nb__toggle span::before { position:absolute; top:-7px; }
+.nb__toggle span::after  { position:absolute; top:7px; }
+.nb__toggle.is-open span { background:transparent; }
+.nb__toggle.is-open span::before { top:0; transform:rotate(45deg); }
+.nb__toggle.is-open span::after  { top:0; transform:rotate(-45deg); }
+
+/* Menu mobile (slide) */
+.nb__menu { position:absolute; left:0; right:0; top:56px; background:#f8f9fa;
+  border-bottom:1px solid rgba(0,0,0,.08); max-height:0; overflow:hidden; transition:max-height .25s ease; }
+.nb__menu.is-open { max-height:420px; } /* augmente si tu as plus d'items */
+.nb__menu ul { list-style:none; padding:.5rem 1rem 1rem; margin:0; display:flex; flex-direction:column; gap:.25rem; }
+.nb__menu a { display:block; padding:.5rem .25rem; text-decoration:none; color:#222; }
+.nb__menu a:hover { text-decoration:underline; }
+
+/* Boutons */
+.nb__actions .btn-primary, .nb__actions .btn-outline, .nb__actions .btn-danger {
+  display:inline-block; padding:.45rem .8rem; border-radius:.5rem; font-weight:600; text-decoration:none; border:1px solid transparent;
+}
+.nb__actions .btn-primary { background:#0d6efd; color:#fff; }
+.nb__actions .btn-outline { background:transparent; border-color:#0d6efd; color:#0d6efd; }
+.nb__actions .btn-danger  { background:#dc3545; color:#fff; border-color:#dc3545; }
+
+/* Desktop (>=992px) : menu toujours visible, sans burger */
+@media (min-width: 992px){
+  .nb__toggle { display:none; }
+  .nb__menu { position:static; max-height:none; border:0; }
+  .nb__menu ul { flex-direction:row; align-items:center; gap: .5rem 1rem; padding:0; }
+}
+@media (prefers-reduced-motion: reduce){
+  .nb__menu { transition:none; }
+  .nb__toggle span, .nb__toggle span::before, .nb__toggle span::after { transition:none; }
+}
+.title{
+  color: black;
+}
+/* Footer */
+.ft {
+  background: #f8f9fa;               /* fond gris clair (comme Bootstrap bg-light) */
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  margin-top: 2rem;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.ft__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;                   /* permet de passer sur 2 lignes si trop serré */
+  gap: 0.75rem;
+}
+
+.ft__links {
+  display: flex;
+  gap: 1rem;
+}
+
+.ft__link {
+  color: #0d6efd;                    /* bleu Bootstrap */
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.ft__link:hover {
+  text-decoration: underline;
+}
+
+.ft__brand {
+  color: #555;
+}
