@@ -10,7 +10,7 @@ const Footer = ({ siteName = 'My HealthyHub' }) => {
       <div className="ft__inner">
         <div className="ft__links">
           <Link to="/contact" className="ft__link">Contact</Link>
-          <Link to="/mentions-legales" className="ft__link">Mentions légales bbbb</Link>
+          <Link to="/mentions-legales" className="ft__link">Mentions légales</Link>
         </div>
 
         <div className="ft__brand">

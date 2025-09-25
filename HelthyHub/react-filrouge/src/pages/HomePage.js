@@ -22,11 +22,11 @@ const Home = () => (
         </a>
         </div>
         <div className='imageacc'>
-        { <img src={photoacceuillarge} alt="Healthy food" className="photoacceuillarge" /> }
         </div>
       </div>
       </div>
     </div>
+    { <img src={photoacceuillarge} alt="Healthy food" className="photoacceuillarge" /> }
     { <img src={photogrid1} alt="Healthy food" className="photogrid1" /> }
       { <img src={photoacceuillarge} alt="Healthy food" className="photoacceuillarge" /> }
         { <img src={photoacceuillarge} alt="Healthy food" className="photoacceuillarge" /> }
