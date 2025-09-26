@@ -13,6 +13,8 @@ import Conseils from './recettes/Conseils';
 import Submit from './pages/SubmitPage';
 import MesRecettes from './pages/MesRecettes';
 import Footer from './components/Footer';
+import MentionsLegales from './pages/MentionsLegales';
+import Contact from './pages/Contact';
 
 const RoutesConfig = () => {
   // ✅ Initialiser directement à partir du localStorage
@@ -65,6 +67,8 @@ const RoutesConfig = () => {
         <Route path="/recettes" element={<Recettes isLoggedIn={isLoggedIn} />} />
         <Route path="/conseils" element={<Conseils />} />
         <Route path="*" element={<ErrorPage />} />
+        <Route path="/MentionsLegales" element={<MentionsLegales />} />
+         <Route path="/Contact" element={<Contact />} />
       </Routes>
        <Footer siteName="My HealthyHub" />
     </Router>
