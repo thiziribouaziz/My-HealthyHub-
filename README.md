@@ -88,7 +88,7 @@ _redirects pour supporter React Router sur Netlify
 CORS :
 
 En dev : autorise http://127.0.0.1:9090
-En prod : autorise https://healthy-hub-front.netlify.app
+En prod : autorise https://....netlify.app
 Base de données :
 
 Tables users et recettes créées automatiquement via dbInit.js
