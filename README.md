@@ -6,8 +6,8 @@ Frontend : React (Webpack, Babel, Sass) déployé sur Netlify
 Backend : Node.js + Express + MySQL déployé sur Render
 Base de données : MySQL hébergée sur Railway
 🚀 Déploiements
-Frontend (Netlify) : https://healthy-hub-front.netlify.app
-Backend (Render) : https://healthyhub-bdd.onrender.com
+Frontend (Netlify) 
+Backend (Render) 
 Base de données (Railway) : Service MySQL connecté au backend
 📂 Structure du projet
 HealthyHub/
