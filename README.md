@@ -31,7 +31,7 @@ HealthyHub/
 └── README.md
 ⚙️ Installation en local
 1. Cloner le projet
-git clone https://github.com/kenaubry/HealthyHub.git
+git clone 
 cd HealthyHub
 2. Backend
 cd backend
