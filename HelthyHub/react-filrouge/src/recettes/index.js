@@ -55,7 +55,7 @@ const baseURL = process.env.REACT_APP_API_URL || "http://localhost:5000";
       {!isLoggedIn && (
         <Row>
           <div className="d-grid gap-2">
-            <a href="/login" className="btn4" size="lg">
+            <a href="/login" className="btn4">
               Afficher plus de recettes
             </a>
           </div>

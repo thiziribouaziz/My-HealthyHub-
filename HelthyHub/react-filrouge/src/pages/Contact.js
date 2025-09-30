@@ -88,7 +88,7 @@ const Contact = () => {
         Une question, un dysfonctionnement à signaler, ou une amélioration à proposer ?
         Écrivez-nous via ce formulaire.
       </p>
-
+      <div className='formContact'>
       <form className="form" onSubmit={onSubmit} noValidate>
         {/* Honeypot caché */}
 
@@ -151,6 +151,7 @@ const Contact = () => {
           {loading ? 'Envoi…' : 'Envoyer'}
         </button>
       </form>
+      </div>
     </section>
   );
 };

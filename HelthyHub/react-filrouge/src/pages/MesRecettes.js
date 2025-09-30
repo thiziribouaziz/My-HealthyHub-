@@ -115,12 +115,12 @@ const MesRecettes = () => {
   };
 
   return (
+    <div className='formRecette'>
     <div className="container mt-5">
       <div className="row justify-content-center">
         <div className="col-md-8">
 
           <h1 className="mb-4 text-center">Nouvelle recette</h1>
-
           <form onSubmit={handleSubmit} className="mb-5">
             <div className="mb-3">
               <label className="form-label">Titre de la recette</label>
@@ -222,6 +222,7 @@ const MesRecettes = () => {
 
         </div>
       </div>
+    </div>
     </div>
   );
 };

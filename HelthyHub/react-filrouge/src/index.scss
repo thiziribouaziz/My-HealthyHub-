@@ -171,12 +171,32 @@ form {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   border-radius: 10px;
   background-color: #fff4e4;
-  margin-top: 100px; /* Ajoute un espacement entre le bas de la navbar et le formulaire */
+  margin-top: 100px; 
   font-family: "Roboto Condensed", sans-serif;
   letter-spacing: 1px;
   border-collapse: collapse;
-  text-align: center;
 }
+.formSubmit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.formLogin{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.formContact{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.formRecette{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 .form-label{
   color: #000;
@@ -298,18 +318,6 @@ border-radius: 20px;
   background-color: #000000 !important; 
 }
 
-.btn4 {
-  background-color: #F7C32E;
-  width: 15vw;
-  color: #ffffff !important;
-  font-family: "Roboto Condensed", sans-serif;
-  margin-top: 50px;
-  border-color: #F7C32E;
-  border-radius: 25px;
-  font-size: 1.3em;
-  align-items: center;
-  padding: 10px 20px;
-}
 
 .App {
   text-align: center;
@@ -479,4 +487,13 @@ display: flex;
 
 .ft__brand {
   color: #555;
+}
+
+@media (max-width: 768px) {
+
+  .formLogin , .formSubmit {
+    width: 300px;
+
+  }
+
 }

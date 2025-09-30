@@ -30,8 +30,8 @@ const LoginPage = ({ onLogin }) => {
       localStorage.setItem('email', email);
 
 
-      // ✅ optionnel : rediriger vers une page (ex: accueil ou profil)
-      navigate('/');
+      // ✅ optionnel : rediriger vers une page (ex: accueil)
+      navigate('/recettes');
     } catch (err) {
       setMessage(err.response?.data?.message || 'Erreur de connexion ❌');
     }
@@ -39,7 +39,8 @@ const LoginPage = ({ onLogin }) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+    <div className = 'formLogin'>
+      <form onSubmit={handleSubmit}> 
         <div className="titre">
           <h1>Connectez-vous</h1>
         </div>
@@ -81,6 +82,7 @@ const LoginPage = ({ onLogin }) => {
           </button>
         </Link>
       </form>
+      </div>
 
       {message && <p>{message}</p>}
     </>

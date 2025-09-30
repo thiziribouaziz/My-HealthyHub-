@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Footer = ({ siteName = 'My HealthyHub' }) => {
+const Footer = ({ siteName = 'HealthyHub' }) => {
   const year = new Date().getFullYear();
 
   return (

@@ -30,6 +30,7 @@ const SubmitPage = () => {
 
   return (
     <>
+    <div className='formSubmit'>
       <form onSubmit={handleSubmit}>
         <div className="titre">
           <h1>Créer un compte</h1>
@@ -103,7 +104,7 @@ const SubmitPage = () => {
           S'inscrire
         </button>
       </form>
-
+       </div>
       {message && <p>{message}</p>}
     </>
   );
