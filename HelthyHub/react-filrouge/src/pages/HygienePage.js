@@ -10,10 +10,10 @@ const HygienePage = () => (
       <section className="conseils">
         <h2>Conseils d'Hygiène Alimentaire</h2>
         <p>Suivre des pratiques d'hygiène adéquates est essentiel pour éviter
-            les contaminations alimentaires. Voici quelques conseils à suivre :</p>
+            les contaminations<br /> alimentaires. Voici quelques conseils à suivre :</p>
       <h2>1. Lavage des mains</h2>
       <p>Avant de commencer à cuisiner, lavez-vous toujours
-        les mains avec du savon et de l'eau chaude pendant au moins 20 secondes.</p>
+        les mains avec du savon et de l'eau<br /> chaude pendant au moins 20 secondes.</p>
       <h2>2. Utilisation des ustensiles</h2>
       <p>Utilisez des ustensiles propres et spécifiques pour chaque type d'aliment.</p>
     <ul>
@@ -32,7 +32,7 @@ const HygienePage = () => (
     <p>Assurez-vous que les aliments sont bien cuits, surtout les viandes :</p>
     <ul>
         <li>Utilisez un thermomètre pour vous assurer que la
-            viande atteint la température minimale de cuisson.</li>
+            viande atteint la température<br /> minimale de cuisson.</li>
         <li>Évitez de cuire les aliments à feu trop faible.</li>
     </ul>
     <h2>5. Nettoyage de la cuisine</h2>
@@ -44,7 +44,6 @@ const HygienePage = () => (
       </section>
 </div>
 <footer>
-        <p>© 2024 Sensibilisation à l'hygiène alimentaire</p>
       </footer>
   </>
 );

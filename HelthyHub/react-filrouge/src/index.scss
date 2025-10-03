@@ -135,6 +135,8 @@ padding-left: 111px;
   border-radius: 25px;
   font-size: 1.2em;
   cursor: pointer;
+  width: 300px;
+  height: 60px;
 }
 
 .cta-button:hover{
@@ -380,17 +382,12 @@ footer p {
   max-width: 600px; /* largeur max d’une vidéo */
   text-align: center;
 }
-.espaceAcceuil{
-display: flex;
- }
 .photoacceuillarge{
   width: 150px;
   height: 150px;
   border-radius: 100%;
 }
-.divAcc{
-  display: block;
-}
+
 .imageacc{
   background-image: url(./img/photogrid1.jpg);
 }
@@ -488,12 +485,117 @@ display: flex;
 .ft__brand {
   color: #555;
 }
+.petiteImages{
+display: flex;
+}
+
+/* Reset utile */
+* { box-sizing: border-box; }
+img {  max-width: 100%; height: auto; }
+
+/* Couleurs d'accent (exemple) */
+.yellow { color: #FFD700; }
+.green { color: #2ECC71; }
+
+/* Conteneur */
+.container {
+  width: min(100%, 1200px);
+  margin-inline: auto;
+  padding: 1.5rem;
+}
+
+/* HERO (texte + image) */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  min-height: 60vh;
+}
+
+.hero-text {
+  flex: 1 1 480px;
+}
+
+.hero-text h1 {
+  margin: 0 0 1rem;
+  line-height: 1.1;
+  font-size: clamp(2rem, 3vw + 1rem, 3.5rem);
+  font-family: Aclonica;
+}
+
+.hero-sub {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1rem, 0.6vw + 0.9rem, 1.125rem);
+  color: #333;
+}
+
+.cta-button {
+  padding: 0.9rem 1.2rem;
+  border-radius: 999px;
+  background: #FFD700;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+.cta-button:hover { transform: translateY(-1px); opacity: 0.95; }
+
+.hero-image {
+  flex: 1 1 420px;
+  border-radius: 1rem;
+  overflow: hidden;
+  /* pour une hauteur stable sur desktop même si l'image change */
+  aspect-ratio: 4 / 3;
+}
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Grille d’images responsive */
+.petiteImages {
+  width: min(100%, 1200px);
+  margin: 2rem auto;
+  padding: 0 1.5rem 1.5rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+.petiteImages img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;      /* carrés harmonieux */
+  object-fit: cover;        /* crop propre */
+  border-radius: 2rem;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media (max-width: 960px) {
+  .hero {
+    gap: 1.25rem;
+    min-height: 50vh;
+  }
+}
 
 @media (max-width: 768px) {
-
-  .formLogin , .formSubmit {
-    width: 300px;
-
+  .hero {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-image {
+    aspect-ratio: 16 / 9;   /* plus panoramique sur mobile */
+  }
+  .hero-text {
+    text-align: center;
+    margin-top: 4rem;
+  }
+  .cta-button {
+    width: 100%;
+    text-align: center;
+  }
+  .btn4{
+    margin-left: 280px !important ;
   }
 
 }
